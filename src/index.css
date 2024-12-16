@@ -1,0 +1,317 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('./assets/fonts/Satoshi-Variable.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('./assets/fonts/Satoshi-VariableItalic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Prevent scrolling of the entire page */
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+
+/* Reset default margins and paddings */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Ensure the html and body elements cover the full viewport */
+html, body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden; /* Prevent scrolling */
+  background-color: white; /* Black background */
+  color:#171717; /* Default text color */
+}
+
+/* Ensure #root spans the full viewport */
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+/* Apply the Satoshi font only to the Login heading */
+.login-heading {
+  font-family: 'Satoshi', sans-serif;
+  font-weight: 700; /* Adjust the weight as needed */
+  font-size: 2rem;
+  letter-spacing: 0.1rem;
+}
+
+.message {
+  word-wrap: break-word; /* Allows long words to break and wrap to the next line */
+  white-space: normal;   /* Ensures that spaces and line breaks are respected */
+  max-width: 100%;       /* Prevents the message from overflowing */
+}
+@keyframes typing {
+  0%, 20% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.animate-typing {
+  animation: typing 1.2s infinite;
+}
+
+.navbar {
+  position: sticky; /* or fixed */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  height: 80px; /* Ensure this matches your layout */
+  background: #171717;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+}
+.chat-container {
+  flex: 1;
+  overflow-y: auto;
+  /* max-height: calc(100vh - 100px); */
+}
+.triangle-container {
+  position: fixed;
+  padding: 40px; /* Remove padding */
+  margin: 40px; 
+}
+.react-icon {
+  /* position: absolute; */
+  /* bottom: 77px; */
+  /* right: -10px;s */
+  display: flex;
+  /* background: red; */
+}
+
+/* loader */
+.loader {
+  border: 8px solid rgba(255, 255, 255, 0.3);
+  border-top: 8px solid #ffffff;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%); /* Start off-screen */
+  }
+  to {
+    transform: translateX(0); /* End in place */
+  }
+}
+
+.slide-panel {
+  position: fixed;
+  top: 80px; /* Adjusted to your design */
+  left: 0;
+  padding: 4px;
+  margin-left: 8px;
+  width: 16rem; /* 64px x 4 = 16rem */
+  height: calc(100vh - 80px); /* Full height minus header height */
+  background-color: #F2F2F2;
+  color: #171717;
+  overflow-y: auto;
+  transform: translateX(-100%);
+  animation: slideIn 0.15s ease-in-out forwards;/* Change the duration for speed control */
+  z-index: 10;
+  /* background: gray; */
+}
+
+.analyze-Content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.custom-toast {
+  height: 150px !important;
+  border-radius: 8px !important;
+  display: flex;
+  flex-direction: row; /* Layout: Icon in one column, text in the next */
+  align-items: center; /* Vertically center the container */
+  text-align: left;
+  padding: 10px 20px;
+  position: relative;
+  gap: 15px; /* Space between the icon and the text */
+}
+
+.custom-toast .Toastify__toast-body {
+  display: flex;
+  flex-direction: row; /* Icon and text side by side */
+  align-items: flex-start; /* Align text to the top */
+  text-align: left;
+  font-family:sans-serif;
+  font-size: 0.9rem;
+}
+
+.custom-toast .Toastify__toast-body .Toastify__toast-icon {
+  display: flex;
+  position: relative;
+  align-items: center; 
+  align-self: center;
+  justify-content: center; /* Horizontally center icon */
+  width: 30px; /* Icon column width */
+}
+
+.custom-toast .Toastify__toast-body .text-container {
+  display: flex;
+  flex-direction: column; /* Stack text vertically */
+  justify-content: flex-start; /* Align text to the top */
+  text-align: left; /* Ensure text stays left-aligned */
+}
+
+.custom-toast .Toastify__close-button {
+  position: absolute; /* Absolute positioning for the button */
+  top: 10px;
+  right: 10px;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+.tts-button {
+  position: relative;
+  text-align: center;
+  transition: all 0.3s ease; /* For smooth hover effect */
+}
+
+.tts-button::after {
+  content: "Coming Soon"; /* Text that appears on hover */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #595959; /* Same color as text */
+  font-size: 0.795rem;
+  /* font-weight: 500; */
+  font-weight: bolder;
+  opacity: 0; /* Initially hidden */
+  transition: opacity 0.3s ease; /* Smooth appearance */
+}
+
+.tts-button:hover::after {
+  opacity: 1; /* Show "Coming Soon" text */
+}
+
+.tts-button:hover {
+  color: transparent; /* Hide the original "TTS" text */
+}
+
+/* .chat-input-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 100%;
+  max-width: 1000px;
+} */
+
+.chat-input-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%; /* Full width of the column */
+  max-width: 1000px; /* Optional max width for better layout */
+  margin-top: 2rem; /* Add some space above */
+}
+
+/* CIRCLE ANIMATION */
+
+@keyframes moveUpDown {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px); /* Moves the circle up by 15px */
+  }
+}
+
+@keyframes moveLeftRight {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(15px); /* Moves the circle right by 15px */
+  }
+}
+
+.circle-animation {
+  animation-duration: 6s; /* Adjust speed */
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.circle-1 {
+  animation-name: moveUpDown;
+}
+
+.circle-2 {
+  animation-name: moveLeftRight;
+}
+
+.circle-3 {
+  animation-name: moveUpDown;
+  animation-duration: 8s; /* Slightly different speed for variety */
+}
+
+.circle-4 {
+  animation-name: moveLeftRight;
+  animation-duration: 7s; /* Slightly different speed for variety */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
