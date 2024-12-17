@@ -152,6 +152,55 @@ html, body {
   z-index: 10;
   /* background: gray; */
 }
+@media (max-width: 640px) { 
+  .slide-panel {
+    position: fixed;
+    top: 73px; /* Adjusted to your design */
+    left: 0;
+    padding: 4px;
+    margin-left: 8px;
+    width: 100%;
+    height: calc(100vh - 75px); /* Full height minus header height */
+    background-color: #F2F2F2;
+    color: #171717;
+    overflow-y: auto;
+    transform: translateX(-100%);
+    animation: slideIn 0.15s ease-in-out forwards;/* Change the duration for speed control */
+    z-index: 1000;
+  }
+}
+@media (min-width: 641px) and (max-width: 1024px) {
+  .slide-panel {
+    position: fixed;
+    top: 73px; /* Adjusted to your design */
+    left: 0;
+    padding: 4px;
+    margin-left: 8px;
+    width: 100%;
+    height: calc(100vh - 77px); /* Full height minus header height */
+    background-color: #F2F2F2;
+    color: #171717;
+    overflow-y: auto;
+    transform: translateX(-100%);
+    animation: slideIn 0.15s ease-in-out forwards;/* Change the duration for speed control */
+    z-index: 1000;
+  }
+}
+.small-panel {
+  position: fixed;
+  top: 80px; /* Adjusted to your design */
+  left: 0;
+  padding: 4px;
+  margin-left: 8px;
+  width: 100px;
+  height: calc(100vh - 80px); /* Full height minus header height */
+  background-color: #F2F2F2;
+  color: #171717;
+  overflow-y: auto;
+  transform: translateX(-100%);
+  animation: slideIn 0.15s ease-in-out forwards;/* Change the duration for speed control */
+  z-index: 1;
+}
 
 .analyze-Content {
   display: flex;

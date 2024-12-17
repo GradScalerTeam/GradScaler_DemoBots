@@ -184,7 +184,7 @@ const ChatHome = () => {
         
       </div>
       {isPanelOpen && (
-        <div className={`slide-panel ${isPanelOpen ? "open" : ""}`}>
+        <div className={`${isPanelOpen ? "open" : ""} slide-panel`} style={{zIndex:1}}>
           {Object.entries(groupedSessions)
       .filter(([_, sessions]) => sessions.length > 0) // Filter out empty sections
       .map(([label, sessions]) => (
@@ -223,36 +223,33 @@ const ChatHome = () => {
            <span className="block">GradScaler</span>
          </h1>
        
-         <div className="grid grid-cols-4 gap-10 mt-6">
+         <div className="grid grid-cols-2 gap-10 mt-6 grid sm:grid-cols-4 gap-6 mt-6">
            <button
              onClick={handleMedicalGetStarted}
-             className="px-6 py-3 bg-[#F2F2F2] text-blue-500 rounded-[4rem] font-semibold border border-blue-500 border-[2px] hover:bg-blue-500 hover:text-[#F2F2F2]" style={{zIndex: 10}}
+             className="px-6 py-3 bg-[#F2F2F2] text-blue-500 rounded-[4rem] font-semibold border border-blue-500 border-[2px] hover:bg-blue-500 hover:text-[#F2F2F2]"
            >
              Medical AI
            </button>
            <button
              onClick={handleGetStarted}
              className="px-6 py-3 bg-[#F2F2F2] text-pink-500 rounded-[4rem] font-semibold border border-pink-500 border-[2px] hover:bg-pink-500 hover:text-[#F2F2F2]"
-             style={{zIndex: 10}}
            >
              Product Law AI
            </button>
            <button
              className="relative px-6 py-3 bg-[#E8E8E8] text-[#595959] rounded-[4rem] font-semibold border border-[#3A3A3A] border-[2px] tts-button"
-             style={{zIndex: 10}}
            >
              <span className="button-text">PDF Analyzer</span>
            </button>
            <button
              className="relative px-6 py-3 bg-[#E8E8E8] text-[#595959] rounded-[4rem] font-semibold border border-[#3A3A3A] border-[2px] tts-button"
-             style={{zIndex: 10}}
            >
              <span className="button-text">TTS</span>
            </button>
          </div>
        
          {/* Chat Input */}
-         <div className="chat-input-wrapper" style={{zIndex: 10}}>
+         <div className="chat-input-wrapper">
            <div
              className="flex items-center justify-center p-2 w-full max-w-4xl border border-[#F2F2F2] rounded-lg bg-[#F2F2F2]"
              style={{ borderRadius: "2rem", height: "90px", border: "solid 2px black" }}

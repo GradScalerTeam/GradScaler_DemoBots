@@ -273,14 +273,16 @@ const MedicalAI = () => {
     )}
         <>
         {/* TOP ROW */}
-        <div className="flex-1 grid grid-cols-[1fr_3fr_1fr] gap-4 p-2 mt-[65px]">
+        {/* <div className="flex-1 grid grid-cols-[1fr_3fr_1fr] gap-4 p-2 mt-[65px]"> */}
+        <div className="flex-1 grid grid-cols-1 mt-[65px] sm:grid-cols-[1fr_3fr_1fr] gap-4 p-2">
+
             {/* LEFT COLUMN */}
-            <div className="col-span-1" >
+            <div className="col-span-1 sm:block hidden" >
             </div>
             {/* MIDDLE COLUMN*/}
-            <div className="col-span-1 p-4 rounded-lg overflow-y-auto max-h-[calc(100vh-260px)]"> 
+            <div className="col-span-1 p-4 rounded-lg overflow-y-auto max-h-[calc(100vh-315px)] sm:max-h-[calc(100vh-260px)]" > 
               {/* MESSAGE AREA (MIDDLE COLUMN) */}
-              <div className="space-y-4 flex flex-col mt-2">
+              <div className="space-y-4 flex flex-col mt-2 sm:mt-2">
                 {messages.map((msg, index) => (
                   <div key={index} className={`flex ${msg.isUser ? "justify-end" : "justify-start"} items-start`}>
                     {!msg.isUser && (
@@ -354,7 +356,7 @@ const MedicalAI = () => {
           <div className="col-span-1"></div>
           {/* MIDDLE COLUMN*/}
           <div 
-              className="chat-container col-span-1 flex items-center p-2 border border-[#171717] border-[2px] rounded-lg mb-1 bg-[#F2F2F2]" 
+              className="chat-container col-span-3 sm:col-span-1 flex items-center p-2 border border-[#171717] border-[2px] rounded-lg mb-1 bg-[#F2F2F2]" 
               style={{ borderRadius: "2rem", height: "90px" }}
             >
               <textarea
